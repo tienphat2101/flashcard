@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+/*
++-------------+
+| BASE STYLES |
++-------------+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: $background;
+	overflow-x: hidden;
+}
+
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+textarea,
+span,
+input,
+button {
+	color: $text;
+	font-family: Poppins, sans-serif;
+}
+
+a {
+	text-decoration: none;
+}

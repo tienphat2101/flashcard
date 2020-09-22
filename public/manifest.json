@@ -1,0 +1,17 @@
+{
+	"name": "FlashCard",
+	"short_name": "FlashCard",
+	"theme_color": "#2c3e50",
+	"background_color": "#d8dad3",
+	"display": "fullscreen",
+	"orientation": "portrait",
+	"scope": "./",
+	"start_url": ".",
+	"icons": [
+		{
+			"src": "./assets/img/icon.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

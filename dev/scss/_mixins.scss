@@ -1,0 +1,16 @@
+@mixin border {
+	border: 1px solid red;
+}
+
+@mixin mq($size) {
+	@if $size == md {
+		@media (min-width: 576px) {
+			@content;
+		}
+	}
+	@if $size == lg {
+		@media (min-width: 992px) {
+			@content;
+		}
+	}
+}

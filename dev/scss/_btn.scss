@@ -1,0 +1,29 @@
+@use 'variables' as *;
+
+/*
++---------------+
+| BUTTON STYLES |
++---------------+
+*/
+.btn {
+	transition: ease 200ms;
+	background: none;
+	border: none;
+	border-radius: 10px;
+	color: $text;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	* {
+		pointer-events: none;
+	}
+
+	&:hover {
+		background: rgba(0, 0, 0, 0.1);
+	}
+}

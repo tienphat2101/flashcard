@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Flashcards</title>
+
+		<!-- Stylesheets -->
+		<link rel="stylesheet" href="assets/css/grid.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+
+		<!-- Font Awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+			integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+			crossorigin="anonymous"
+		/>
+
+		<!-- Progressive Web Application -->
+		<link rel="apple-touch-icon" sizes="512x512" href="assets/img/icon.png" />
+		<link rel="manifest" href="manifest.json" />
+
+		<!-- Favicon -->
+		<link href="assets/img/favicon.ico" rel="icon" type="image/x-icon" />
+
+		<!-- Javascript -->
+		<script src="assets/js/script.js" defer></script>
+	</head>
+	<body>
+		<!-- TEMPLATES -->
+		<template>
+			<!-- Stack Button -->
+			<div class="col-12 col-lg-6 stack-category">
+				<button class="stack-btn"></button>
+			</div>
+
+			<!-- Add/Edit Card -->
+			<div class="col-12 col-lg-6">
+				<div class="card__edit">
+					<div class="card__front">
+						<textarea name="card-front" placeholder="Enter content for card front"></textarea>
+					</div>
+					<div class="card__divider"></div>
+					<div class="card__back">
+						<textarea name="card-back" placeholder="Enter content for card back"></textarea>
+					</div>
+					<div class="card__btn">
+						<button class="btn save"><i class="fas fa-check"></i></button>
+						<button class="btn cancel"><i class="fas fa-times"></i></button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card -->
+			<div class="col-12 col-lg-6">
+				<div class="card__item">
+					<div class="card__front">
+						<p></p>
+					</div>
+					<div class="card__divider"></div>
+					<div class="card__back">
+						<p></p>
+					</div>
+					<div class="card__btn">
+						<button class="btn edit"><i class="far fa-edit"></i></button>
+						<button class="btn delete"><i class="fas fa-trash"></i></button>
+					</div>
+				</div>
+			</div>
+		</template>
+
+		<!-- NAVIGATION BAR -->
+		<nav id="nav" class="nav">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 nav__breadcrumbs">
+						<a href="#" data-page="stack">Stacks</a>
+						<span>&gt;</span>
+						<a href="#" data-page="card"></a>
+						<span>&gt;</span>
+						<a href="#" data-page="study">Study</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<!-- STACK PAGE -->
+		<div id="stack-page" class="stack-page">
+			<!-- Search Bar -->
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="search-container">
+							<input class="search-bar" type="text" placeholder="Search Stack" />
+							<button class="search-btn" disabled>
+								<i class="fa fa-search fa-lg"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Stack Buttons -->
+			<section class="stack-grid">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-lg-6">
+							<button class="stack-btn stack-add">
+								<i class="fas fa-plus fa-2x"></i>
+							</button>
+						</div>
+						<div class="col-12 col-lg-6">
+							<div class="stack-name">
+								<input type="text" name="stack-name" id="stack-name" placeholder="Enter stack name" maxlength="15" />
+								<div class="stack-confirm">
+									<button class="btn save"><i class="fas fa-check"></i></button>
+									<button class="btn cancel"><i class="fas fa-times"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- CARD PAGE -->
+		<div id="card-page" class="card-page">
+			<!-- Header -->
+			<header class="container">
+				<div class="row">
+					<div class="col-12 col-lg-6">
+						<div class="header">
+							<h1>Science</h1>
+							<button class="btn edit"><i class="far fa-edit"></i></button>
+							<button class="btn delete"><i class="fas fa-trash"></i></button>
+						</div>
+						<div class="stack__edit">
+							<input type="text" name="stack-name" placeholder="Enter stack name" maxlength="15" />
+							<button class="btn save"><i class="fas fa-check"></i></button>
+							<button class="btn cancel"><i class="fas fa-times"></i></button>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- Card Grid -->
+			<section class="card-grid container">
+				<div class="row">
+					<!-- Options -->
+					<div class="col-12 col-lg-6">
+						<div class="card__options">
+							<button class="btn add"><i class="fas fa-plus"></i></button>
+							<button class="btn study">
+								<i class="fas fa-play"></i><span><b>STUDY</b></span>
+							</button>
+							<button class="btn timed">
+								<i class="far fa-clock"></i><span><b>TIMED</b></span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- STUDY PAGE -->
+		<div id="study-page" class="study-page">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="study__timer">
+							<span>X/X</span>
+							<span></span>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="study__card">
+							<div class="study__card-contents">
+								<div class="study__card-front">
+									<p></p>
+								</div>
+								<div class="study__card-back">
+									<p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="study__btn">
+							<button class="btn wrong"><i class="fas fa-times"></i></button>
+							<button class="btn reset"><i class="fas fa-redo-alt"></i></button>
+							<button class="btn correct"><i class="fas fa-check"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

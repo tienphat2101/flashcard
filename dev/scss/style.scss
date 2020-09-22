@@ -1,0 +1,528 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'base';
+@use 'btn';
+@use 'animations';
+
+/*
++------------------------+
+| NAVIGATION BAR STYLING |
++------------------------+
+*/
+
+.nav {
+	height: 60px;
+	width: 100%;
+	background: $foreground;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+
+	&__breadcrumbs {
+		height: 60px;
+		display: flex;
+		align-items: center;
+
+		a {
+			transition: ease 200ms;
+			padding: 5px;
+		}
+		a:hover {
+			opacity: 0.7;
+		}
+		span {
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+	}
+}
+
+/*
++--------------------+
+| STACK PAGE STYLING |
++--------------------+
+*/
+
+/* Search Bar */
+.search-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.search-bar {
+	color: black;
+	display: inline-flex;
+	width: 70%;
+	height: 40px;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 1em;
+	left: 8px;
+	position: relative;
+	border: none;
+}
+
+.search-btn {
+	color: black;
+	position: relative;
+	right: 25px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	transition: ease 200ms;
+
+	&:hover {
+		opacity: 0.5;
+	}
+}
+
+/* Stack Button */
+.stack-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: $foreground;
+	font-size: 1.3em;
+	margin-bottom: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px;
+	border: none;
+	cursor: pointer;
+	width: 90%;
+	max-width: 400px;
+	height: 120px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+	position: relative;
+	top: 0;
+	left: 0;
+	transition: ease 200ms;
+
+	* {
+		pointer-events: none;
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: $stack;
+		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+		border-radius: 15px;
+		transition: ease 200ms;
+	}
+
+	&::before {
+		z-index: -1;
+		top: 5px;
+		left: 5px;
+	}
+	&::after {
+		z-index: -2;
+		top: 10px;
+		left: 10px;
+	}
+
+	&:hover {
+		top: 5px;
+		left: 5px;
+		&::before {
+			top: 0px;
+			left: 0px;
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0);
+		}
+		&::after {
+			top: 0px;
+			left: 0px;
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0);
+		}
+	}
+}
+
+/* Stack Name Input */
+.stack-name {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: $foreground;
+	margin-bottom: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px;
+	width: 90%;
+	max-width: 400px;
+	height: 120px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+	position: relative;
+	top: 0;
+	left: 0;
+	transition: ease 200ms;
+	padding: 30px;
+
+	input {
+		font-size: 20px;
+		width: 100%;
+		color: $text;
+		background: rgba(0, 0, 0, 0.2);
+		border: none;
+		padding: 5px;
+	}
+}
+
+.stack-confirm {
+	display: flex;
+	position: absolute;
+	bottom: 5px;
+	right: 30px;
+	transition: ease 200ms;
+}
+
+/*
++-------------------+
+| CARD PAGE STYLING |
++-------------------+
+*/
+
+/* Card Page Container */
+#card-page {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+/* Header Styling */
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 500px;
+
+	@include mq(lg) {
+		justify-content: start;
+	}
+
+	button {
+		margin-left: 5px;
+		color: $header;
+		font-size: 20px;
+		width: 40px;
+		height: 40px;
+	}
+
+	h1 {
+		overflow: hidden;
+		color: $header;
+		margin-right: 10px;
+	}
+}
+
+.stack__edit {
+	@extend .header;
+
+	input {
+		font-size: 28px;
+		width: 70%;
+		color: $header;
+		background: rgba(0, 0, 0, 0.1);
+		border: none;
+		padding: 5px 10px;
+	}
+
+	button {
+		width: 40px;
+		height: 40px;
+		font-size: 28px;
+		margin-left: 10px;
+	}
+}
+
+/* Card Styling */
+.card {
+	// Options Styling
+	&__options {
+		position: relative;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin: 15px auto;
+		height: 100px;
+		width: 100%;
+		max-width: 500px;
+
+		@include mq(lg) {
+			justify-content: space-between;
+			height: 200px;
+		}
+
+		.add,
+		.study,
+		.timed {
+			border-radius: 20px;
+			width: 100px;
+			height: 100px;
+
+			i {
+				font-size: 40px;
+			}
+			span {
+				font-size: 14px;
+				margin-top: 10px;
+			}
+		}
+
+		.add {
+			background: $foreground;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+
+			@include mq(lg) {
+				width: 200px;
+				height: 200px;
+			}
+		}
+
+		.study,
+		.timed {
+			color: $foreground;
+			width: 100px;
+			height: 100px;
+
+			span {
+				color: $foreground;
+			}
+		}
+	}
+
+	// Edit/Add Card Styling
+	&__edit {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: $foreground;
+		margin: 15px auto;
+		padding: 30px;
+		border-radius: 20px;
+		height: 200px;
+		width: 100%;
+		max-width: 500px;
+		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+		transition: ease 200ms;
+
+		textarea {
+			background: rgba(0, 0, 0, 0.2);
+			border: none;
+			width: 100%;
+			height: 100%;
+			padding: 5px;
+			resize: none;
+		}
+
+		.card__btn {
+			opacity: 1;
+		}
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+
+	// Individual Card Styling
+	&__item {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: $foreground;
+		margin: 15px auto;
+		padding: 30px;
+		border-radius: 20px;
+		height: 200px;
+		width: 100%;
+		max-width: 500px;
+		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+		transition: ease 200ms;
+
+		&:hover .card__btn {
+			opacity: 1;
+		}
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+
+	&__front,
+	&__back {
+		width: 50%;
+		padding: 15px 0;
+		height: 100%;
+
+		p {
+			overflow: hidden;
+			height: 100%;
+			position: relative;
+			white-space: pre-wrap;
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				background: linear-gradient(rgba($foreground, 0), rgba($foreground, 1));
+				height: 3em;
+			}
+		}
+	}
+
+	&__divider {
+		width: 1px;
+		height: 100%;
+		background: $background;
+		margin: 0 10px;
+	}
+
+	&__btn {
+		display: flex;
+		position: absolute;
+		bottom: 10px;
+		right: 30px;
+		opacity: 0;
+		transition: ease 200ms;
+	}
+}
+
+/*
++--------------------+
+| STUDY PAGE STYLING |
++--------------------+
+*/
+
+.study {
+	&-page {
+		height: calc(100vh - 60px);
+		overflow: hidden;
+	}
+
+	// Study card
+	&__card {
+		width: 80vw;
+		max-width: 50vh;
+		height: calc(80vh - 60px);
+		margin: 0 auto 10px;
+		cursor: pointer;
+
+		* {
+			pointer-events: none;
+		}
+
+		&-contents {
+			position: relative;
+			transform-style: preserve-3d;
+			transition: ease 500ms;
+			width: 100%;
+			height: 100%;
+		}
+
+		.flipped {
+			transform: rotateY(180deg);
+		}
+
+		&-front,
+		&-back {
+			width: 100%;
+			height: 100%;
+			border-radius: 30px;
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 30px;
+			background: $foreground;
+			padding: 30px;
+			backface-visibility: hidden;
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+
+			p {
+				max-height: 100%;
+				width: 100%;
+				text-align: center;
+				overflow: hidden;
+				white-space: pre-wrap;
+			}
+		}
+
+		&-front {
+			transform: translateZ(1px);
+		}
+
+		&-back {
+			transform: translateZ(-1px) rotateY(180deg);
+		}
+	}
+
+	// Study buttons
+	&__btn {
+		display: flex;
+		justify-content: center;
+		align-items: bottom;
+		padding-bottom: 10vh;
+		height: calc(10vh - 20px);
+		z-index: 100;
+
+		button {
+			width: 50px;
+			height: 50px;
+			font-size: 5vh;
+			color: $foreground;
+
+			&:hover {
+				background: none;
+				transform: scale(1.5);
+			}
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		.wrong {
+			color: #d2222d;
+		}
+
+		.correct {
+			color: #238823;
+		}
+
+		.reset {
+			color: $foreground;
+			margin-left: 15px;
+			margin-right: 15px;
+		}
+	}
+
+	&__timer {
+		height: calc(10vh);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 50vh;
+		margin: 0 auto;
+
+		span {
+			color: $foreground;
+			font-size: 5vh;
+			font-weight: 900;
+			font-family: monospace;
+		}
+	}
+}
