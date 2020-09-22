@@ -2,7 +2,7 @@
 
 **Live URL:** https://jjdalaso.github.io/Flashcards/ \
 \
-This is a simple Flashcard app that I created with sir AC Pelayo for our DOM/JavaScript project in Kodigo Code Camp. \
+This is a simple Flashcard app that I created with sir AC Pelayo for our _DOM/JavaScript_ project in __Kodigo Code Camp__. \
 It's intended function is to help students memorize by providing them with an interactive platform where they can store and play with their learning materials.
 \
 \
