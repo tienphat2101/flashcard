@@ -1,4 +1,4 @@
-# FlashCard
+# Flash Cards
 
 **Live URL:** https://jjdalaso.github.io/Flashcards/ \
 \
