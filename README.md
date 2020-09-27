@@ -12,6 +12,7 @@ The app can be used directly on any browser (_using the Live URL above_), and ca
 3. An option to add the web app to Home Screen will appear. Tap __Add__ to proceed.
 4. Go to your phone's home screen and find the Flashcards app. Tap it to open it and start using it.
 \
+
 __Tools Used:__
 1. HTML 
 2. CSS
