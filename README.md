@@ -3,7 +3,7 @@
 **Live URL:** https://jjdalaso.github.io/Flashcards/ \
 \
 This is a simple flash cards app that I created with sir AC Pelayo for our DOM/JavaScript project in __Kodigo Code Camp__. \
-It's intended function is to help students memorize by providing them with an interactive platform where they can store and play with their learning materials.
+Its intended function is to help students memorize by providing them with an interactive platform where they can store and play with their learning materials.
 \
 \
 The app can be used directly on any browser (_using the Live URL above_), and can also be saved on the phone as a web app to allow offline usage (_by following the instructions below_):
