@@ -12,5 +12,5 @@ __Tools Used:__
 3. Vanilla JavaScript
 4. Fontawesome for the icons
 
-**Project Demo**
+**Project Demo**:
 https://www.youtube.com/watch?v=KoTTTNmRbcw
