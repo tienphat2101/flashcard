@@ -11,3 +11,6 @@ __Tools Used:__
 2. CSS
 3. Vanilla JavaScript
 4. Fontawesome for the icons
+
+**Project Demo**
+https://www.youtube.com/watch?v=KoTTTNmRbcw
